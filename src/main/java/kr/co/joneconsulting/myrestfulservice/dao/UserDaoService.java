@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 @Component
@@ -45,6 +46,21 @@ public class UserDaoService {
         }
 
         return null;
+    }
+
+    public User deletById(int id) {
+        Iterator<User> iterator = users.iterator(); //iterator로 데이터 값 변환
+
+        while (iterator.hasNext()){ //전체 iterator값을 반복문을 통해서 하나씩 접근
+            User user = iterator.next();
+
+            if (user.getId() == id) { //막 검색한 id값과 매개변수 id값을 비교해서 같으면 실행
+                iterator.remove(); //찾은 값을 삭제하는 메소드
+                return user;
+            }
+        }
+
+        return null; //찾은 값이 없다면 null값 반환
     }
 }
 
