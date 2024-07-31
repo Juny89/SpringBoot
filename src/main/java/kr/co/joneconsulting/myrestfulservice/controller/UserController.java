@@ -1,5 +1,6 @@
 package kr.co.joneconsulting.myrestfulservice.controller;
 
+import jakarta.validation.Valid;
 import kr.co.joneconsulting.myrestfulservice.bean.User;
 import kr.co.joneconsulting.myrestfulservice.dao.UserDaoService;
 import kr.co.joneconsulting.myrestfulservice.exception.UserNotFoundException;
@@ -38,13 +39,10 @@ public class UserController {
     // input - details of user
     // output - CREATED & Return the created URI
     @PostMapping("/users")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) { //@Valid 어노테이션 등록을 통해 들어오는 User상태의 user객체가 밸리데이션 체크를 한다는것을 명시
         User savedUser = service.save(user);
 
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(savedUser.getId())
-                .toUri();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedUser.getId()).toUri();
 
         return ResponseEntity.created(location).build();
     }

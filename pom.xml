@@ -60,6 +60,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--SPRING BOOT 의 starter에서 지원하는 validation 기능 사용하기 위해 pom.xml에 dependency 등록-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>				<!--springbootframework-->
+			<artifactId>spring-boot-starter-validation</artifactId>	<!--starter 안에 있는 validation사용하는것 명시-->
+			<version>3.0.2</version>								<!--버전 명시-->
+		</dependency>
+		<!--//SPRING BOOT 의 starter에서 지원하는 validation 기능 사용하기 위해 pom.xml에 dependency 등록-->
 	</dependencies>
 
 	<build>
