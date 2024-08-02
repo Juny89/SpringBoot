@@ -68,6 +68,14 @@
 			<version>3.0.2</version>								<!--버전 명시-->
 		</dependency>
 		<!--//SPRING BOOT 의 starter에서 지원하는 validation 기능 사용하기 위해 pom.xml에 dependency 등록-->
+
+		<!--json > xml 데이터 포맷 변경을 위한 dependency 추가-->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>				<!--springbootframework-->
+			<artifactId>jackson-dataformat-xml</artifactId>	<!--starter 안에 있는 validation사용하는것 명시-->
+			<version>2.17.1</version>								<!--버전 명시-->
+		</dependency>
+		<!--//json > xml 데이터 포맷 변경을 위한 dependency 추가-->
 	</dependencies>
 
 	<build>
